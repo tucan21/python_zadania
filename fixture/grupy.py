@@ -7,7 +7,7 @@ class GroupHelperG:
         wd = self.app.wd
         wd.find_element_by_link_text("group page").click()
 
-    def fill_form(self, grupy):
+    def create(self, grupy):
         wd = self.app.wd
         self.open_group_page()
         wd.find_element_by_name("new").click()
