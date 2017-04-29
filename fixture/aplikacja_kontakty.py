@@ -1,15 +1,13 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
+from fixture.sesie_kontakty import SessionHelperK
 
 
-class Aplikacja_kontkty:
+class Aplikacja_kontakty:
 
     def __init__(self):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
-
-    def logout(self):
-        wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
+        self.session = SessionHelperK(self)
 
     def add_new_contact(self, kontakty):
         wd = self.wd
@@ -58,16 +56,6 @@ class Aplikacja_kontkty:
         wd.find_element_by_name("phone2").send_keys(kontakty.phone2)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
-    def login(self, username, password):
-        wd = self.wd
-        self.open_homepage()
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(username)
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
     def open_homepage(self):
         wd = self.wd
