@@ -12,13 +12,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_qroup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add_qroup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_qroup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="34" column="37" lean-forward="false" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="-34">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
-                <element signature="e#24#82#0" expanded="true" />
+                <element signature="e#24#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,13 +34,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="aplikacja_grupy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aplikacja_grupy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="add_contact.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_contact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
               <folding>
-                <element signature="e#24#82#0" expanded="true" />
+                <element signature="e#24#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,8 +59,18 @@
       <file leaf-file-name="kontakty.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kontakty.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aplikacja_kontakty.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/aplikacja_kontakty.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -71,10 +91,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/add_qroup.py" />
-        <option value="$PROJECT_DIR$/add_contact.py" />
-        <option value="$PROJECT_DIR$/kontakty.py" />
         <option value="$PROJECT_DIR$/grupy.py" />
+        <option value="$PROJECT_DIR$/aplikacja_grupy.py" />
+        <option value="$PROJECT_DIR$/add_qroup.py" />
+        <option value="$PROJECT_DIR$/kontakty.py" />
+        <option value="$PROJECT_DIR$/add_contact.py" />
+        <option value="$PROJECT_DIR$/aplikacja_kontakty.py" />
       </list>
     </option>
   </component>
@@ -133,7 +155,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.py.test in add_qroup.py">
+  <component name="RunManager" selected="Python tests.py.test in add_contact.py">
     <configuration default="false" name="py.test in add_qroup.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -237,8 +259,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in add_qroup.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in add_contact.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in add_contact.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in add_qroup.py" />
       </list>
     </recent_temporary>
   </component>
@@ -265,10 +287,25 @@
     <history-entry file="py_test_in_add_contact_py - 2017.04.29 at 12h 13m 31s.xml">
       <configuration name="py.test in add_contact.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_add_qroup_py - 2017.04.29 at 10h 57m 48s.xml">
-      <configuration name="py.test in add_qroup.py" configurationId="tests" />
+    <history-entry file="py_test_in_add_contact_py - 2017.04.29 at 13h 51m 09s.xml">
+      <configuration name="py.test in add_contact.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_add_contact_py - 2017.04.29 at 13h 52m 44s.xml">
+      <configuration name="py.test in add_contact.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_add_contact_py - 2017.04.29 at 13h 56m 21s.xml">
+      <configuration name="py.test in add_contact.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_add_contact_py - 2017.04.29 at 13h 58m 25s.xml">
+      <configuration name="py.test in add_contact.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_add_qroup_py - 2017.04.29 at 12h 14m 05s.xml">
+      <configuration name="py.test in add_qroup.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_add_qroup_py - 2017.04.29 at 13h 47m 32s.xml">
+      <configuration name="py.test in add_qroup.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_add_qroup_py - 2017.04.29 at 13h 50m 47s.xml">
       <configuration name="py.test in add_qroup.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -305,20 +342,12 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/add_contact.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grupy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -329,19 +358,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kontakty.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/add_qroup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="34" column="37" lean-forward="false" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="-34">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#24#82#0" expanded="true" />
+            <element signature="e#24#37#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_contact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplikacja_grupy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplikacja_kontakty.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

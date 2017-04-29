@@ -16,3 +16,4 @@ class Kontakty:
         self.email = email
         self.address2 = address2
         self.phone2 = phone2
+
