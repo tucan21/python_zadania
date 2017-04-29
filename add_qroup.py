@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from grupy import Grupy
 
 def is_alert_present(wd):
     try:
@@ -20,7 +21,7 @@ class add_contact(unittest.TestCase):
         self.open_homepage(wd)
         self.login(wd, username="admin", password="secret")
         self.open_group_page(wd)
-        self.fill_form(wd, name="grupa_1", header="qwerty", footer="qwerty")
+        self.fill_form(wd, Grupy(name="grupa_1", header="qwerty", footer="qwerty"))
         self.return_to_group_page(wd)
         self.logout(wd)
 
@@ -30,7 +31,7 @@ class add_contact(unittest.TestCase):
         self.open_homepage(wd)
         self.login(wd, username="admin", password="secret")
         self.open_group_page(wd)
-        self.fill_form(wd, name="", header="", footer="")
+        self.fill_form(wd, Grupy(name="", header="", footer=""))
         self.return_to_group_page(wd)
         self.logout(wd)
 
@@ -40,17 +41,17 @@ class add_contact(unittest.TestCase):
     def return_to_group_page(self, wd):
         wd.find_element_by_link_text("group page").click()
 
-    def fill_form(self, wd, name, header, footer):
+    def fill_form(self, wd, grupy):
         wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(name)
+        wd.find_element_by_name("group_name").send_keys(grupy.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(header)
+        wd.find_element_by_name("group_header").send_keys(grupy.header)
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(footer)
+        wd.find_element_by_name("group_footer").send_keys(grupy.footer)
         wd.find_element_by_name("submit").click()
 
     def open_group_page(self, wd):
