@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pytest
-
 from fixture.aplikacja_grupy import Aplikacja_grupy
 from model.grupy import Grupy
 
@@ -14,13 +13,13 @@ def app(request):
     
 def test_add_group(app):
     success = True
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.fill_form(Grupy(name="grupa_1", header="qwerty", footer="qwerty"))
-    app.logout()
+    app.session.logout()
 
 
 def test_add_empty_group(app):
     success = True
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.fill_form(Grupy(name="", header="", footer=""))
-    app.logout()
+    app.session.logout()
