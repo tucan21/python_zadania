@@ -11,7 +11,6 @@ class Aplikacja_grupy:
         self.session = SessionHelperG(self)
         self.group = GroupHelperG(self)
 
-
     def open_homepage(self):
         wd = self.wd
         wd.get("http://localhost:81/addressbook/")
