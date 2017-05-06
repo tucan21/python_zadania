@@ -1,16 +1,15 @@
 import pytest
-from fixture.aplikacja_grupy import Aplikacja_grupy
-from fixture.aplikacja_kontakty import Aplikacja_kontakty
+from fixture.aplication import Aplikacja
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def app(request):
-    fixture = Aplikacja_grupy()
-    request.addfinalizer(fixture.destroy)
-    return fixture
+    fixture = Aplikacja()
+    fixture.session.login(username="admin", password="secret")
 
-@pytest.fixture()
-def app(request):
-    fixture = Aplikacja_kontakty()
-    request.addfinalizer(fixture.destroy)
+    def fin():
+        fixture.session.logout()
+        fixture.destroy()
+
+    request.addfinalizer(fin)
     return fixture
