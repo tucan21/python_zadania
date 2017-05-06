@@ -51,14 +51,14 @@ class GroupHelper:
 
     def test_delete_first_contact(self):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
 
     def test_modify_first_contact(self, kontakty):
         wd = self.app.wd
         self.open_contact_page()
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -116,39 +116,40 @@ class GroupHelper:
         wd = self.app.wd
         self.open_group_page()
         wd.find_element_by_name("new").click()
-        wd.find_element_by_name("group_name").click()
-        wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(grupy.name)
-        wd.find_element_by_name("group_header").click()
-        wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(grupy.header)
-        wd.find_element_by_name("group_footer").click()
-        wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(grupy.footer)
+        self.fill_group_form(grupy)
         wd.find_element_by_name("submit").click()
         self.return_to_group_page()
+
+    def fill_group_form(self, grupy):
+        wd = self.app.wd
+        self.chng_field_value("group_name", grupy.name)
+        self.chng_field_value("group_header", grupy.header)
+        self.chng_field_value("group_footer", grupy.footer)
+
+    def chng_field_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
 
     def test_delete_first_group(self):
         wd = self.app.wd
         self.open_group_page()
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         wd.find_element_by_name("delete").click()
         self.return_to_group_page()
+
+    def select_first_group(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
 
     def test_modify_first_group(self, grupy):
         wd = self.app.wd
         self.open_group_page()
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_group()
         wd.find_element_by_name("edit").click()
-        wd.find_element_by_name("group_name").click()
-        wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(grupy.name)
-        wd.find_element_by_name("group_header").click()
-        wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(grupy.header)
-        wd.find_element_by_name("group_footer").click()
-        wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(grupy.footer)
+        self.fill_group_form(grupy)
         wd.find_element_by_name("update").click()
         self.return_to_group_page()
 
