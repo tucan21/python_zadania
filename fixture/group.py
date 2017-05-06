@@ -144,12 +144,12 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
-    def test_modify_first_group(self, grupy):
+    def test_modify_first_group(self, new_group_data):
         wd = self.app.wd
         self.open_group_page()
         self.select_first_group()
         wd.find_element_by_name("edit").click()
-        self.fill_group_form(grupy)
+        self.fill_group_form(new_group_data)
         wd.find_element_by_name("update").click()
         self.return_to_group_page()
 
