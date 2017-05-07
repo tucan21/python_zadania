@@ -1,4 +1,6 @@
-
+from model.grupy import Grupy
 
 def test_delete_first_group(app):
-    app.group.test_delete_first_group()
+    if app.group.count_group() == 0:
+        app.group.create_group(Grupy(name="test"))
+    app.group.del_group()
