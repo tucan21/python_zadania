@@ -67,10 +67,6 @@ class GroupHelper:
         self.fill_new_contact_form(kontakty)
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
 
-    def open_contact_page(self):
-        wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
-
     def return_to_group_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("group page").click()
@@ -118,7 +114,13 @@ class GroupHelper:
 
     def open_group_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("groups").click()
+        if not (wd.current_url.endswith("/group.php") and len(wd.find_elements_by_name("new")) > 0):
+            wd.find_element_by_link_text("groups").click()
+
+    def open_contact_page(self):
+        wd = self.app.wd
+        if not len(wd.find_elements_by_name("Send e-Mail")) > 0:
+            wd.find_element_by_link_text("home").click()
 
     def count_group(self):
         wd = self.app.wd
