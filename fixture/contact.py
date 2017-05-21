@@ -10,6 +10,7 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
         self.fill_new_contact_form(kontakty)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.contact_cache = None
 
     def fill_new_contact_form(self, kontakty):
         wd = self.app.wd
@@ -61,6 +62,7 @@ class ContactHelper:
         self.select_first_contact()
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
+        self.contact_cache = None
 
     def edit_contact(self, kontakty):
         wd = self.app.wd
@@ -69,6 +71,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         self.fill_new_contact_form(kontakty)
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.contact_cache = None
 
     def open_contact_page(self):
         wd = self.app.wd
@@ -84,12 +87,14 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
+    contact_cache = None
 
     def get_contact_list(self):
-        wd = self.app.wd
-        self.open_contact_page()
-        contacts = []
-        for element in wd.find_elements_by_xpath(".//td[2]"):
-            text = element.text
-            contacts.append(Kontakty(firstname=text, lastname=text))
-        return contacts
+        if self.contact_cache is None:
+            wd = self.app.wd
+            self.open_contact_page()
+            self.contact_cache = []
+            for element in wd.find_elements_by_xpath(".//td[2]"):
+                text = element.text
+                self.contact_cache.append(Kontakty(firstname=text, lastname=text))
+        return list(self.contact_cache)
