@@ -3,7 +3,20 @@ from model.grupy import Grupy
 
 
 def test_add_group(app):
-    app.group.create_group(Grupy(name="qwerty", header="qwerty", footer="qwerty"))
+    old_groups = app.group.get_group_list()
+    group = Grupy(name="qwerty", header="qwerty", footer="qwerty")
+    app.group.create_group(group)
+    new_groups = app.group.get_group_list()
+    assert len(old_groups) + 1 == len(new_groups)
+    old_groups.append(group)
+    assert sorted(old_groups, key=Grupy.id_or_max) == sorted(new_groups, key=Grupy.id_or_max)
+
 
 def test_add_empty_group(app):
-    app.group.create_group(Grupy(name="", header="", footer=""))
+    old_groups = app.group.get_group_list()
+    group = Grupy(name="", header="", footer="")
+    app.group.create_group(group)
+    new_groups = app.group.get_group_list()
+    assert len(old_groups) + 1 == len(new_groups)
+    old_groups.append(group)
+    assert sorted(old_groups, key=Grupy.id_or_max) == sorted(new_groups, key=Grupy.id_or_max)

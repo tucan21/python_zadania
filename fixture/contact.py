@@ -83,3 +83,13 @@ class ContactHelper:
     def select_first_contact(self):
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
+
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.open_contact_page()
+        contacts = []
+        for element in wd.find_elements_by_xpath(".//td[2]"):
+            text = element.text
+            contacts.append(Kontakty(firstname=text, lastname=text))
+        return contacts
