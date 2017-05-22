@@ -1,4 +1,5 @@
 from model.grupy import Grupy
+from random import randrange
 
 #def test_modify_first_group(app):
 #    if app.group.count_group() == 0:
@@ -11,14 +12,15 @@ from model.grupy import Grupy
 
 def test_modify_group_name(app):
     if app.group.count_group() == 0:
-       app.group.create_group(Grupy(name="warunki wstepne"))
+        app.group.create_group(Grupy(name="warunki wstepne"))
     old_groups = app.group.get_group_list()
+    index = randrange(len(old_groups))
     group = Grupy(name="New group")
-    group.id = old_groups[0].id
-    app.group.edit_group(group)
+    group.id = old_groups[index].id
+    app.group.edit_group_by_index(index, group)
     new_groups = app.group.get_group_list()
     assert len(old_groups) == len(new_groups)
-    old_groups[0] = group
+    old_groups[index] = group
     assert sorted(old_groups, key=Grupy.id_or_max) == sorted(new_groups, key=Grupy.id_or_max)
 
 #def test_modify_group_header(app):
