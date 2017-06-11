@@ -1,5 +1,5 @@
 import pytest
-from fixture.aplication import Aplikacja
+from fixture.aplication import Aplication
 
 fixture = None
 
@@ -7,10 +7,10 @@ fixture = None
 def app(request):
     global fixture
     if fixture is None:
-        fixture = Aplikacja()
+        fixture = Aplication()
     else:
         if not fixture.is_valid():
-            fixture = Aplikacja()
+            fixture = Aplication()
     fixture.session.ensure_login(username="admin", password="secret")
     return fixture
 

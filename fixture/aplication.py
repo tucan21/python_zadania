@@ -4,7 +4,7 @@ from fixture.session import SessionHelper
 from fixture.contact import ContactHelper
 
 
-class Aplikacja:
+class Aplication:
     def __init__(self):
         self.wd = WebDriver()
         self.session = SessionHelper(self)

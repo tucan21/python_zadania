@@ -1,6 +1,6 @@
 from sys import maxsize
 
-class Grupy:
+class Group:
 
     def __init__(self, name=None, header=None, footer=None, id=None):
         self.name = name

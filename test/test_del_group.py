@@ -1,9 +1,9 @@
-from model.grupy import Grupy
+from model.group import Group
 from random import randrange
 
 def test_delete_some_group(app):
     if app.group.count_group() == 0:
-        app.group.create_group(Grupy(name="test"))
+        app.group.create_group(Group(name="test"))
     old_groups = app.group.get_group_list()
     index = randrange(len(old_groups))
     app.group.del_group_by_index(index)
