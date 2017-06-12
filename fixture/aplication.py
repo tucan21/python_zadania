@@ -1,15 +1,23 @@
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from fixture.group import GroupHelper
 from fixture.session import SessionHelper
 from fixture.contact import ContactHelper
 
 
 class Aplication:
-    def __init__(self):
-        self.wd = WebDriver()
+    def __init__(self, browser, base_url):
+        if browser == "firefox":
+            self.wd = webdriver.Firefox()
+        if browser == "chrome":
+            self.wd = webdriver.Chrome()
+        if browser == "ie":
+            self.wd = webdriver.Ie()
+        else:
+            raise ValueError("Unrecognized browser %s" % browser)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
+        self.base_url = base_url
 
     def is_valid(self):
         try:
@@ -20,7 +28,7 @@ class Aplication:
 
     def open_homepage(self):
         wd = self.wd
-        wd.get("http://localhost:81/addressbook/")
+        wd.get(self.base_url)
 
     def destroy(self):
         self.wd.quit()
