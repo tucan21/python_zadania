@@ -4,16 +4,16 @@ from fixture.session import SessionHelper
 from fixture.contact import ContactHelper
 
 
-class Aplication:
+class Application:
     def __init__(self, browser, base_url):
         if browser == "firefox":
             self.wd = webdriver.Firefox()
-        if browser == "chrome":
+        elif browser == "chrome":
             self.wd = webdriver.Chrome()
-        if browser == "ie":
+        elif browser == "ie":
             self.wd = webdriver.Ie()
         else:
-            raise ValueError("Unrecognized browser %s" % browser)
+            raise ValueError("Unrecognized browser %s" %browser)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
