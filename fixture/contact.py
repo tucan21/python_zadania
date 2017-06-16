@@ -127,7 +127,7 @@ class ContactHelper:
         cell = row.find_elements_by_tag_name("td")[7]
         cell.find_element_by_tag_name("a").click()
 
-    def open_contract_view_by_index(self, index):
+    def open_contact_view_by_index(self, index):
         wd = self.app.wd
         self.open_contact_page()
         row = wd.find_elements_by_name("entry")[index]
@@ -153,8 +153,8 @@ class ContactHelper:
 
     def get_contact_from_view_page(self, index):
         wd = self.app.wd
-        self.open_contract_view_by_index(index)
-        text = wd.find_elements_by_id("content").text
+        self.open_contact_view_by_index(index)
+        text = wd.find_element_by_id("content").text
         homephone = re.search("H: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
         workphone = re.search("W: (.*)", text).group(1)
