@@ -62,7 +62,6 @@ class ContactHelper:
         wd.find_element_by_name("phone2").send_keys(contact.secondaryphone)
 
     def del_contact(self):
-        wd = self.app.wd
         self.del_contact_by_index(0)
 
     def select_contact_by_index(self, index):
@@ -118,7 +117,7 @@ class ContactHelper:
                 all_emails = cells[4].text
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, address=address,
                                                   all_phones_from_home_page=all_phones, all_emails_from_home_page=all_emails))
-            return list(self.contact_cache)
+        return list(self.contact_cache)
 
     def open_contact_to_edit_by_index(self, index):
         wd = self.app.wd
@@ -141,12 +140,12 @@ class ContactHelper:
         lastname = wd.find_element_by_name("lastname").get_attribute("value")
         id = wd.find_element_by_name("id").get_attribute("value")
         homephone = wd.find_element_by_name("home").get_attribute("value")
-        mobilephone = wd.find_element_by_name("work").get_attribute("value")
-        workphone = wd.find_element_by_name("mobile").get_attribute("value")
+        mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
+        workphone = wd.find_element_by_name("work").get_attribute("value")
         secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
         address = wd.find_element_by_name("address").get_attribute("value")
         email1 = wd.find_element_by_name("email").get_attribute("value")
-        email2 = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
         return Contact(firstname=firstname, lastname=lastname, id=id,
                        homephone=homephone, workphone=workphone, mobilephone=mobilephone,
                        secondaryphone=secondaryphone, address=address, email1=email1, email2=email2)
