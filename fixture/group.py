@@ -31,6 +31,7 @@ class GroupHelper:
             wd.find_element_by_name(field_name).send_keys(text)
 
     def del_group(self):
+        wd = self.app.wd
         self.del_group_by_index(0)
 
     def select_group_by_index(self, index):
@@ -50,7 +51,7 @@ class GroupHelper:
         self.return_to_group_page()
         self.group_cache = None
 
-    def del_group_by_id(self, id    ):
+    def del_group_by_id(self, id):
         wd = self.app.wd
         self.open_group_page()
         self.select_group_by_id(id)
@@ -63,6 +64,7 @@ class GroupHelper:
         wd.find_element_by_name("selected[]").click()
 
     def edit_group(self):
+        wd = self.app.wd
         self.edit_group_by_index(0)
 
     def edit_group_by_index(self, index, new_group_data):
