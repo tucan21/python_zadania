@@ -40,7 +40,7 @@ class GroupHelper:
 
     def select_group_by_id(self, id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("imput[value='%s']" % id).click()
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
 
     def del_group_by_index(self, index):
@@ -63,9 +63,9 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
-    def edit_group(self):
+    def edit_group(self, new_group_data):
         wd = self.app.wd
-        self.edit_group_by_index(0)
+        self.edit_group_by_index(0, new_group_data)
 
     def edit_group_by_index(self, index, new_group_data):
         wd = self.app.wd

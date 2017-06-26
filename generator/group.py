@@ -25,7 +25,7 @@ def random_strng(prefix, maxlen):
     symbols = string.ascii_letters + string.digits + " "*10
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
-testdata = [Group(name="", header="", footer="")] + [
+testdata = [
     Group(name=random_strng("name", 10), header=random_strng("header", 20), footer=random_strng("footer", 20))
     for i in range(n)
 ]
