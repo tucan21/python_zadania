@@ -186,3 +186,14 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         wd.find_element_by_link_text("home").click()
         self.contact_cache = None
+
+    def edit_contact_and_get_id(self, contact):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.select_first_contact()
+        id = wd.find_elements_by_name("selected[]")[0].get_attribute("value")
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        self.fill_new_contact_form(contact)
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.contact_cache = None
+        return id
