@@ -1,6 +1,7 @@
 from model.contact import Contact
+from random import randrange
 
-# def test_modify_contact(app,db, check_ui):
+#def test_modify_contact(app,db, check_ui):
 #    old_contacts = db.get_contact_list()
 #    if app.contact.count_contact() == 0:
 #        app.contact.create_contact(Contact(firstname="Ola", middlename="Katarzyna", lastname="Pawlak", nickname="12345678", title="987654321",
@@ -16,24 +17,24 @@ from model.contact import Contact
 #    app.contact.edit_contact(new_contact_value)
 #    new_contacts = db.get_contact_list()
 #    assert sorted([contact for contact in old_contacts if contact.id != edited_contact_id], key=Contact.id_or_max) == sorted([contact for contact in new_contacts if contact.id != edited_contact_id], key=Contact.id_or_max)
-#    assert [contact for contact in old_contacts if contact.id == edited_contact_id] == [new_contact_value]
+#    assert [contact for contact in new_contacts if contact.id == edited_contact_id] == [new_contact_value]
 #    if check_ui:
 #        assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
 
-
-def test_modify_first_contact(app):
-    old_contacts = app.contact.get_contact_list()
+def test_modify_some_contact(app):
     if app.contact.count_contact() == 0:
-        app.contact.create_contact(Contact(firstname="Ola", middlename="Katarzyna", lastname="Pawlak", nickname="12345678", title="987654321",
+        app.contact(Contact(firstname="Ola", middlename="Katarzyna", lastname="Pawlak", nickname="12345678", title="987654321",
                                            company="CBO", address="Katowice", homephone="2233665544", mobilephone="6012345678",
                                            workphone="227895632", fax="224147856", email1="asdfgh@02.pl", email2="qazwsx@o2.pl",
                                            address2="", secondaryphone=""))
-    contact = Contact(firstname="Ania", middlename="Teresa", lastname="Kowalska", nickname="32165478", title="1452565",
-                                           company="ABC", address="Warszawa", homephone="3322556633", mobilephone="3256598545",
-                                           workphone="212563254", fax="41254214", email1="qwerty@02.pl", email2="ytrewq@o2.pl",
-                                           address2="", secondaryphone="")
-    app.contact.edit_contact(contact)
+    old_contacts = app.contact.get_contact_list()
+    index = randrange(len(old_contacts))
+    contact = Contact(firstname="Paulina", middlename="Magda", lastname="Kowalska", nickname="Paula", title="Mrs",
+                                           company="DB", address="Krakow", homephone="2233665544", mobilephone="6012345678", workphone="227895632",
+                                           fax="224147856", email1="asdfgh@02.pl", email2="sdf@op.pl", address2="", secondaryphone="")
+    contact.id = old_contacts[index].id
+    app.contact.edit_contact_by_index(index, contact)
     new_contacts = app.contact.get_contact_list()
-    old_contacts[0] = contact
     assert len(old_contacts) == len(new_contacts)
-    assert old_contacts == new_contacts
+    old_contacts[index] = contact
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)

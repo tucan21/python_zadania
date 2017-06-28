@@ -173,3 +173,16 @@ class ContactHelper:
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
+
+    def return_to_contact_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home")
+
+    def edit_contact_by_index(self, index, new_contact_data):
+        wd = self.app.wd
+        self.select_contact_by_index(index)
+        wd.find_elements_by_css_selector("img[alt='Edit']")[index].click()
+        self.fill_new_contact_form(new_contact_data)
+        wd.find_element_by_name("update").click()
+        wd.find_element_by_link_text("home").click()
+        self.contact_cache = None
